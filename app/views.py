@@ -47,7 +47,7 @@ def login():
             user = UserProfile.query.filter_by(username=username).first()
 
             if user is not None and check_password_hash(user.password, password)
-                flas('Successfully logged in.', 'success') 
+                flash('Successfully logged in.', 'success') 
 
             # get user id, load into session
             login_user(user)
@@ -68,6 +68,12 @@ def load_user(id):
 def secure_page():
     return render_template("secure_page.html")
 
+@app.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    flash("Successfully logged out.")
+    return redirect(url_for('home'))
 
 ###
 # The functions below should be applicable to all Flask apps.
