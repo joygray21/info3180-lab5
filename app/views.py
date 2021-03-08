@@ -63,9 +63,10 @@ def login():
 def load_user(id):
     return UserProfile.query.get(int(id))
 
-@route()
+@app.route('/secure-page')
 @login_required
 def secure_page():
+    return render_template("secure_page.html")
 
 
 ###
