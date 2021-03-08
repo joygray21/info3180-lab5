@@ -63,6 +63,11 @@ def login():
 def load_user(id):
     return UserProfile.query.get(int(id))
 
+@route()
+@login_required
+def secure_page():
+
+
 ###
 # The functions below should be applicable to all Flask apps.
 ###
