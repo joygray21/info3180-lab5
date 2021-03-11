@@ -5,7 +5,7 @@ from .config import Config
 
 app = Flask(__name__)
 
-db = SQLAlchemy(app)
+db = SQLAlchemy(app) #connect to db
 
 # Flask-Login login manager
 login_manager = LoginManager()
